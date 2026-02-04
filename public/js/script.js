@@ -86,6 +86,8 @@ function clearInput() {
     const resultContainer = document.getElementById('result-container');
     const noResultContainer = document.getElementById('no-result-container');
     const downloadSection = document.querySelector('.download-section');
+    const featuresSection = document.querySelector('.features-section');
+    const howToSection = document.querySelector('.how-to-section');
     
     input.value = '';
     errorMessage.classList.remove('active');
@@ -94,6 +96,8 @@ function clearInput() {
         noResultContainer.style.display = 'none';
     }
     downloadSection.style.display = 'block';
+    featuresSection.classList.remove('hidden');
+    howToSection.classList.remove('hidden');
     updateInputIcon();
     input.focus();
     
@@ -165,12 +169,16 @@ function displayResult(results) {
     const resultContainer = document.getElementById('result-container');
     const noResultContainer = document.getElementById('no-result-container');
     const downloadSection = document.querySelector('.download-section');
+    const featuresSection = document.querySelector('.features-section');
+    const howToSection = document.querySelector('.how-to-section');
     
     if (noResultContainer) {
         noResultContainer.style.display = 'none';
     }
     
     downloadSection.style.display = 'none';
+    featuresSection.classList.add('hidden');
+    howToSection.classList.add('hidden');
     
     let mediaGridHTML = '<div class="media-grid">';
     
