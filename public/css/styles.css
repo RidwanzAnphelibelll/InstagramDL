@@ -780,6 +780,11 @@ body::before {
     line-height: 1.7;
 }
 
+.features-section.hidden,
+.how-to-section.hidden {
+    display: none !important;
+}
+
 footer {
     background: var(--bg-secondary);
     border-top: 1px solid var(--border-color);
