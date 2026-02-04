@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free Instagram Downloader - Download Instagram videos and photos in high quality. Save single or multiple images and videos. Fast, free, and no registration required.">
+    <title>Instagram Downloader - Download Videos & Photos</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'><path fill='%23E4405F' d='M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z'/></svg>" type="image/svg+xml">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="public/css/styles.css">
+</head>
+<body>
+
+    <div class="loading-overlay" id="loading">
+        <div class="loading-content">
+            <div class="loading-icon">
+                <div></div>
+                <div></div>
+            </div>
+            
+            <div class="loader-wave">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="header-nav">
+            <button class="hamburger-menu" id="hamburger-menu" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-menu" id="nav-menu">
+                <a href="https://github.com/RidwanzAnphelibelll/InstagramDL" target="_blank" rel="noopener">
+                    <i class="fab fa-github"></i>Github
+                </a>
+            </div>
+        </div>
+        
+        <div class="header-content">
+            <h1><i class="fab fa-instagram"></i> Instagram Downloader</h1>
+            <p>Download Videos & Photos</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="download-section">
+            <div class="input-container">
+                <div class="search-box">
+                    <div class="search-input-wrapper">
+                        <button type="button" id="paste-btn" class="input-icon" title="Paste from clipboard" aria-label="Paste URL">
+                            <i class="fas fa-paste"></i>
+                        </button>
+                        <input type="text" id="instagram-url" placeholder="Paste Instagram URL here..." aria-label="Instagram URL" autocomplete="off" />
+                    </div>
+                    <button id="download-btn" class="download-btn" aria-label="Download">
+                        <i class="fas fa-download"></i> Download
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="loader" id="loader">
+            <div class="loader-spinner"></div>
+            <p>Processing your Instagram URL...</p>
+        </div>
+
+        <div class="error-message" id="error-message">
+            <i class="fas fa-exclamation-triangle"></i>
+            <h3>Download Failed</h3>
+            <p id="error-text">Unable to process the Instagram URL!</p>
+        </div>
+
+        <div class="result-container" id="result-container" style="display: none;"></div>
+
+        <div class="features-section">
+            <h2>Why Choose Our Instagram Downloader?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-video"></i>
+                    <h3>Videos Download</h3>
+                    <p>Download single or multiple video in high quality</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-images"></i>
+                    <h3>Photos Download</h3>
+                    <p>Download single or multiple image from content</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Fast & Free</h3>
+                    <p>Quick downloads, completely free</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Mobile Friendly</h3>
+                    <p>Works seamlessly on all devices</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Safe & Secure</h3>
+                    <p>No registration required</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="how-to-section">
+            <h2>How to Download Instagram Content?</h2>
+            <div class="steps-container">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Copy Instagram URL</h3>
+                    <p>Open Instagram app, find the post, tap three dots and copy the link</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Paste URL Here</h3>
+                    <p>Paste the copied link into the input box above</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Download & Enjoy</h3>
+                    <p>Click Download button and save your content</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; <span id="year"></span> Instagram Downloader - All Rights Reserved</p>
+            <p style="margin-top: 8px; font-size: 12px; opacity: 0.7;">Fast, Free & Easy</p>
+        </div>
+    </footer>
+
+    <script src="public/js/script.js"></script>
+</body>
+</html>
